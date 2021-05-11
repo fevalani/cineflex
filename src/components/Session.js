@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import BottomBar from "./BottomBar";
 
 export default function Session() {
+  const params = useParams();
+
+  useEffect(() => {
+    const promise = axios.get();
+  }, []);
   return (
     <>
       <div className="session-title">Selecione o horário</div>
