@@ -1,6 +1,6 @@
 import bacurau from "../images/bacurau.jpeg";
 
-export default function BottomBar() {
+export default function BottomBar(props) {
   return (
     <>
       <div className="bottom-bar">
@@ -8,7 +8,8 @@ export default function BottomBar() {
           <img src={bacurau} />
         </div>
         <div>
-          <div className="filme-title-bottom">Nome do filme</div>
+          <div className="filme-title-bottom">{props.name}</div>
+          <div className="filme-title-bottom">{props.subname}</div>
         </div>
       </div>
     </>
