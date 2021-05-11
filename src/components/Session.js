@@ -1,3 +1,7 @@
 export default function Session() {
-  return <></>;
+  return (
+    <>
+      <div className="session-title">Selecione o filme</div>
+    </>
+  );
 }
