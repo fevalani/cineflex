@@ -1,26 +1,42 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import BottomBar from "./BottomBar";
 
 export default function Session() {
   const params = useParams();
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    const promise = axios.get();
+    const promise = axios.get(
+      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${params.idFilm}/showtimes`
+    );
+    promise.then((result) => setData(result.data));
+    promise.catch(() => alert("Erro"));
   }, []);
+
+  if (data.length === 0) {
+    return <div className="session-title">Carregando...</div>;
+  }
+
   return (
     <>
       <div className="session-title">Selecione o horário</div>
       <ul className="session-list">
-        <li>
-          <div className="session-day">Quinta-feira - 24/06/2021</div>
-          <Link to="/assentos">
-            <button className="session-hour">15:00</button>
-          </Link>
-        </li>
+        {data.days.map((item) => (
+          <li>
+            <div className="session-day">
+              {item.weekday} - {item.date}
+            </div>
+            {item.showtimes.map((t) => (
+              <Link to={`/assentos/${t.id}`}>
+                <button className="session-hour">{t.name}</button>
+              </Link>
+            ))}
+          </li>
+        ))}
       </ul>
-      <BottomBar name="Bacurau" />
+      <BottomBar imageURL={data.posterURL} filmName={data.title} />
     </>
   );
 }

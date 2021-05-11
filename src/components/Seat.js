@@ -14,7 +14,7 @@ export default function Seat() {
           <button className="button-default">Reservar assento(s)</button>
         </Link>
       </div>
-      <BottomBar name="Bacurau" subname="Quinta-feira - 15:00" />
+      <BottomBar imageURL={""} filmName={""} sessionHour={""} />
     </>
   );
 }
