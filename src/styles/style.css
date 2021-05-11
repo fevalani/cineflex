@@ -30,7 +30,8 @@ body {
   z-index: 10;
 }
 
-.catalog-title {
+.catalog-title,
+.session-title {
   width: 100%;
   height: 110px;
   margin-top: 67px;
@@ -45,6 +46,7 @@ body {
 .films-list {
   width: 100%;
   height: 100%;
+  padding: 0px 20px;
 
   display: flex;
   flex-wrap: wrap;
@@ -69,4 +71,76 @@ body {
 .catalog-films img {
   width: 100%;
   height: 100%;
+}
+
+.session-list {
+  width: 100%;
+  height: 100%;
+
+  padding: 0 20px;
+}
+
+.session-list li {
+  margin-bottom: 20px;
+}
+
+.session-day {
+  font-size: 20px;
+
+  margin-bottom: 22px;
+}
+
+.session-hour {
+  width: 83px;
+  height: 43px;
+
+  background-color: #e8833a;
+  color: #fff;
+
+  font-size: 22px;
+  border-radius: 3px;
+  border: none;
+
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.bottom-bar {
+  width: 100%;
+  height: 117px;
+  padding: 14px 10px;
+
+  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.25);
+  background-color: rgb(110, 38, 38);
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+}
+
+.frame-image-bottom {
+  width: 64px;
+  height: 100%;
+
+  border-radius: 3px;
+  padding: 6px;
+  margin-right: 14px;
+
+  box-shadow: 0px 0px 4px rgba(255, 255, 255);
+  background-color: #fff;
+}
+
+.frame-image-bottom img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.filme-title-bottom {
+  font-size: 26px;
+  color: #fff;
 }
