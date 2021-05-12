@@ -36,7 +36,7 @@ export default function Session() {
           </li>
         ))}
       </ul>
-      <BottomBar imageURL={data.posterURL} filmName={data.title} />
+      <BottomBar imageURL={data.posterURL} filmTitle={data.title} />
     </>
   );
 }

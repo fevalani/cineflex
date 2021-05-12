@@ -6,7 +6,7 @@ export default function BottomBar(props) {
           <img src={props.imageURL} />
         </div>
         <div>
-          <div className="filme-title-bottom">{props.filmName}</div>
+          <div className="filme-title-bottom">{props.filmTitle}</div>
           <div className="filme-title-bottom">{props.sessionHour}</div>
         </div>
       </div>
