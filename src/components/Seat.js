@@ -1,20 +1,38 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 import BottomBar from "./BottomBar";
 
 export default function Seat() {
+  const params = useParams();
+  const [data, setData] = useState([]);
+  const [sendData, setSendData] = useState({ ids: [], name: "", cpf: "" });
+
+  useEffect(() => {
+    const promise = axios.get(
+      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${params.idSession}/seats`
+    );
+    promise.then((result) => setData(result.data));
+    promise.catch(() => alert("Erro"));
+  }, []);
+
   return (
     <>
       <div className="seats-title">Selecione o(s) assento(s)</div>
       <div className="seats-container">
-        <SeatsMap />
+        <SeatsMap seats={data.seats} setSendData={setSendData} />
         <ExampleSeat />
-        <InputCustomerData />
+        <InputCustomerData setSendData={setSendData} />
         <Link to="/sucesso">
           <button className="button-default">Reservar assento(s)</button>
         </Link>
       </div>
-      <BottomBar imageURL={""} filmName={""} sessionHour={""} />
+      <BottomBar
+        imageURL={data.movie.posterURL}
+        filmName={data.movie.title}
+        sessionHour={`${data.day.weekday} - ${data.day.date}`}
+      />
     </>
   );
 }
