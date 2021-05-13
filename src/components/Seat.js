@@ -1,19 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
+import ExampleSeat from "./ExampleSeat";
 import BottomBar from "./BottomBar";
 import SeatsMap from "./SeatsMap";
 import InputCustomerData from "./InputCustomerData";
 
-export default function Seat() {
+export default function Seat({ sucessObj, setSucessObj }) {
   const params = useParams();
   const [data, setData] = useState([]);
-  let [sendData, setSendData] = useState({
+  const [sendData, setSendData] = useState({
     ids: [],
     name: "",
     cpf: "",
   });
+  let history = useHistory();
 
   useEffect(() => {
     const promise = axios.get(
@@ -31,15 +33,22 @@ export default function Seat() {
     if (
       sendData.ids.length > 0 &&
       sendData.name !== "" &&
-      sendData.cpf.length > 10
+      sendData.cpf.length === 11
     ) {
-      return (
-        <Link to="/sucesso">
-          <button className="button-default">Reservar assento(s)</button>
-        </Link>
+      setSucessObj({
+        ...sendData,
+        title: data.movie.title,
+        hour: data.name,
+        date: data.day.date,
+      });
+      const promise = axios.post(
+        "https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many",
+        sendData
       );
+      promise.then(() => history.push("/sucesso"));
+      promise.catch(() => alert("Erro no envio!"));
     } else {
-      return <button className="button-default">Reservar assento(s)</button>;
+      alert("Algum dado incompleto");
     }
   }
 
@@ -54,7 +63,9 @@ export default function Seat() {
         />
         <ExampleSeat />
         <InputCustomerData setSendData={setSendData} sendData={sendData} />
-        {linkAuthorized()}
+        <button className="button-default" onClick={linkAuthorized}>
+          Reservar assento(s)
+        </button>
       </div>
       <BottomBar
         imageURL={data.movie.posterURL}
@@ -62,24 +73,5 @@ export default function Seat() {
         sessionHour={`${data.day.weekday} - ${data.day.date}`}
       />
     </>
-  );
-}
-
-function ExampleSeat() {
-  return (
-    <ul className="seats-example">
-      <li>
-        <div className="seat select"></div>
-        <div>Selecionado</div>
-      </li>
-      <li>
-        <div className="seat"></div>
-        <div>Disponível</div>
-      </li>
-      <li>
-        <div className="seat unavailable"></div>
-        <div>Indisponível</div>
-      </li>
-    </ul>
   );
 }

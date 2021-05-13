@@ -4,8 +4,14 @@ import Catalog from "./Catalog";
 import Session from "./Session";
 import Seat from "./Seat";
 import ConfirmPage from "./ConfirmPage";
+import { useState } from "react";
 
 export default function App() {
+  const [sucessObj, setSucessObj] = useState({
+    title: "",
+    hour: "",
+    date: "",
+  });
   return (
     <BrowserRouter>
       <Header />
@@ -17,10 +23,10 @@ export default function App() {
           <Session />
         </Route>
         <Route path="/assentos/:idSession" exact>
-          <Seat />
+          <Seat sucessObj={sucessObj} setSucessObj={setSucessObj} />
         </Route>
         <Route path="/sucesso" exact>
-          <ConfirmPage />
+          <ConfirmPage sucessObj={sucessObj} />
         </Route>
       </Switch>
     </BrowserRouter>

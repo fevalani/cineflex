@@ -30,7 +30,7 @@ export default function SeatsMap(props) {
                 }`
               : "seat unavailable"
           }
-          onClick={() => selectItem(item)}
+          onClick={item.isAvailable ? () => selectItem(item) : undefined}
         >
           {item.name}
         </li>

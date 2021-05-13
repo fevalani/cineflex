@@ -1,5 +1,4 @@
 export default function InputCustomerData({ sendData, setSendData }) {
-  console.log(sendData);
   return (
     <>
       <div className="data-input">

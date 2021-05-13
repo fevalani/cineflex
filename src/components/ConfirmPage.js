@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
-export default function ConfirmPage() {
+export default function ConfirmPage(props) {
+  console.log(props);
+  console.log(props.sucessObj);
   return (
     <>
       <div className="confirm-title">
