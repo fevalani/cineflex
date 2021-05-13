@@ -2,28 +2,22 @@ import { useState } from "react";
 
 export default function SeatsMap(props) {
   const { seats, sendData, setSendData } = props;
-  const [select, setSelect] = useState(false);
+  const [select, setSelect] = useState("");
 
   if (seats.length === 0) {
     return <div className="session-title">Carregando...</div>;
   }
 
   function selectItem(id) {
+    let arr;
     if (sendData.ids.find((item) => item === id.id) !== undefined) {
-      sendData.ids = sendData.ids.filter((item) =>
-        item === id.id ? false : true
-      );
-      setSelect(false);
+      arr = sendData.ids.filter((item) => (item === id.id ? false : true));
     } else {
-      if (sendData.ids.length === 0) {
-        setSelect(true);
-        sendData.ids.push(id.id);
-      } else {
-        setSelect(true);
-        sendData.ids.push(id.id);
-      }
+      arr = [...sendData.ids, id.id];
     }
+    setSendData({ ...sendData, ids: arr });
   }
+
   return (
     <ul className="seats-map">
       {seats.map((item) => (

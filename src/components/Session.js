@@ -4,12 +4,12 @@ import { Link, useParams } from "react-router-dom";
 import BottomBar from "./BottomBar";
 
 export default function Session() {
-  const params = useParams();
+  const { idFilm } = useParams();
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const promise = axios.get(
-      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${params.idFilm}/showtimes`
+      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idFilm}/showtimes`
     );
     promise.then((result) => setData(result.data));
     promise.catch(() => alert("Erro"));

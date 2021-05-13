@@ -29,7 +29,7 @@ export default function Seat() {
 
   function linkAuthorized() {
     if (
-      sendData.ids.length !== 0 &&
+      sendData.ids.length > 0 &&
       sendData.name !== "" &&
       sendData.cpf.length > 10
     ) {
