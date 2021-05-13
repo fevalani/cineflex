@@ -53,7 +53,7 @@ export default function Seat() {
           setSendData={setSendData}
         />
         <ExampleSeat />
-        <InputCustomerData setSendData={setSendData} />
+        <InputCustomerData setSendData={setSendData} sendData={sendData} />
         {linkAuthorized()}
       </div>
       <BottomBar

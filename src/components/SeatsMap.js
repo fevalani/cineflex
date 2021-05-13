@@ -2,7 +2,6 @@ import { useState } from "react";
 
 export default function SeatsMap(props) {
   const { seats, sendData, setSendData } = props;
-  const [select, setSelect] = useState("");
 
   if (seats.length === 0) {
     return <div className="session-title">Carregando...</div>;
