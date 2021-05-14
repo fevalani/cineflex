@@ -3,7 +3,7 @@ export default function BottomBar(props) {
     <>
       <div className="bottom-bar">
         <div className="frame-image-bottom">
-          <img src={props.imageURL} />
+          <img src={props.imageURL} alt="Cinema seats" />
         </div>
         <div>
           <div className="filme-title-bottom">{props.filmTitle}</div>

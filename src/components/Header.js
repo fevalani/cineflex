@@ -3,7 +3,6 @@ import backArrow from "../images/previous.png";
 
 export default function Header({ backButton }) {
   let history = useHistory();
-  console.log(history);
   if (backButton) {
     return (
       <>

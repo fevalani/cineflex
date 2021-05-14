@@ -25,13 +25,15 @@ export default function Session({ setBackButton }) {
       <div className="session-title">Selecione o horário</div>
       <ul className="session-list">
         {data.days.map((item) => (
-          <li>
+          <li key={item.id}>
             <div className="session-day">
               {item.weekday} - {item.date}
             </div>
             {item.showtimes.map((t) => (
               <Link to={`/assentos/${t.id}`}>
-                <button className="session-hour">{t.name}</button>
+                <button key={t.id} className="session-hour">
+                  {t.name}
+                </button>
               </Link>
             ))}
           </li>

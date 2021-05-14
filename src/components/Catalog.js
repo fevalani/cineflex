@@ -3,14 +3,16 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Catalog({ setBackButton }) {
-  setBackButton(false);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const promise = axios.get(
       "https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies"
     );
-    promise.then((result) => setData(result.data));
+    promise.then((result) => {
+      setData(result.data);
+      setBackButton(false);
+    });
     promise.catch(() => alert("Erro"));
   }, []);
 
@@ -21,10 +23,10 @@ export default function Catalog({ setBackButton }) {
   return (
     <>
       <div className="catalog-title">Selecione o filme</div>
-      <ul class="films-list">
+      <ul className="films-list">
         {data.map((item) => (
-          <Link to={`/sessoes/${item.id}`} exact>
-            <li key={item.id} className="catalog-films">
+          <Link to={`/sessoes/${item.id}`} key={item.id}>
+            <li className="catalog-films">
               <img src={item.posterURL} />
             </li>
           </Link>

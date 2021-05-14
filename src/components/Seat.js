@@ -71,7 +71,12 @@ export default function Seat({ sucessObj, setSucessObj, setBackButton }) {
           setSucessObj={setSucessObj}
         />
         <ExampleSeat />
-        <InputCustomerData setSendData={setSendData} sendData={sendData} />
+        <InputCustomerData
+          sucessObj={sucessObj}
+          setSucessObj={setSucessObj}
+          setSendData={setSendData}
+          sendData={sendData}
+        />
         <button className="button-default" onClick={linkAuthorized}>
           Reservar assento(s)
         </button>
