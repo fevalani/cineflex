@@ -8,7 +8,6 @@ import SeatsMap from "./SeatsMap";
 import InputCustomerData from "./InputCustomerData";
 
 export default function Seat({ sucessObj, setSucessObj, setBackButton }) {
-  setBackButton(true);
   const params = useParams();
   const [data, setData] = useState([]);
   const [sendData, setSendData] = useState({
@@ -22,7 +21,10 @@ export default function Seat({ sucessObj, setSucessObj, setBackButton }) {
     const promise = axios.get(
       `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${params.idSession}/seats`
     );
-    promise.then((result) => setData(result.data));
+    promise.then((result) => {
+      setData(result.data);
+      setBackButton(true);
+    });
     promise.catch(() => alert("Erro"));
   }, []);
 

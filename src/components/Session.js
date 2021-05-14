@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 import BottomBar from "./BottomBar";
 
 export default function Session({ setBackButton }) {
-  setBackButton(true);
   const { idFilm } = useParams();
   const [data, setData] = useState([]);
 
@@ -12,7 +11,10 @@ export default function Session({ setBackButton }) {
     const promise = axios.get(
       `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idFilm}/showtimes`
     );
-    promise.then((result) => setData(result.data));
+    promise.then((result) => {
+      setData(result.data);
+      setBackButton(true);
+    });
     promise.catch(() => alert("Erro"));
   }, []);
 
@@ -30,10 +32,8 @@ export default function Session({ setBackButton }) {
               {item.weekday} - {item.date}
             </div>
             {item.showtimes.map((t) => (
-              <Link to={`/assentos/${t.id}`}>
-                <button key={t.id} className="session-hour">
-                  {t.name}
-                </button>
+              <Link to={`/assentos/${t.id}`} key={t.id}>
+                <button className="session-hour">{t.name}</button>
               </Link>
             ))}
           </li>
