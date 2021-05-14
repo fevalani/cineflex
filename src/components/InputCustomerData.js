@@ -13,7 +13,7 @@ export default function InputCustomerData({ sendData, setSendData }) {
       <div className="data-input">
         <span>CPF do comprador:</span>
         <input
-          type="text"
+          type="number"
           placeholder="Digite seu CPF..."
           onChange={(e) => setSendData({ ...sendData, cpf: e.target.value })}
         ></input>

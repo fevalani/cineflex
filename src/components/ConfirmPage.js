@@ -1,8 +1,24 @@
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function ConfirmPage(props) {
-  console.log(props);
-  console.log(props.sucessObj);
+  props.setBackButton(false);
+  const { cpf, date, hour, seats, name, title } = props.sucessObj;
+  const seatArray = seats
+    .map((i) => parseInt(i))
+    .sort((a, b) => {
+      return a - b;
+    });
+  let history = useHistory();
+
+  function clearAll() {
+    props.setSucessObj({
+      title: "",
+      hour: "",
+      date: "",
+      seats: [],
+    });
+    history.push("/");
+  }
   return (
     <>
       <div className="confirm-title">
@@ -10,23 +26,26 @@ export default function ConfirmPage(props) {
       </div>
       <div className="confirm-data">
         <span className="confirm-data-title">Filme e sessão</span>
-        <span>Bacurau</span>
-        <span>24/06/2021 15:00</span>
+        <span>{title}</span>
+        <span>
+          {date} {hour}
+        </span>
       </div>
       <div className="confirm-data">
         <span className="confirm-data-title">Ingressos</span>
-        <span>Assento 13</span>
-        <span>Assento 14</span>
+        {seatArray.map((i) => (
+          <span key={i}>Assento {i}</span>
+        ))}
       </div>
       <div className="confirm-data">
         <span className="confirm-data-title">Filme e sessão</span>
-        <span>Nome: Fernando Valani</span>
-        <span>CPF: 123.456.789-10</span>
+        <span>Nome: {name}</span>
+        <span>CPF: {cpf}</span>
       </div>
       <div className="center-button">
-        <Link to="/">
-          <button className="button-default">Voltar pra Home</button>
-        </Link>
+        <button onClick={clearAll} className="button-default">
+          Voltar pra Home
+        </button>
       </div>
     </>
   );

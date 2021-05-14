@@ -7,7 +7,8 @@ import BottomBar from "./BottomBar";
 import SeatsMap from "./SeatsMap";
 import InputCustomerData from "./InputCustomerData";
 
-export default function Seat({ sucessObj, setSucessObj }) {
+export default function Seat({ sucessObj, setSucessObj, setBackButton }) {
+  setBackButton(true);
   const params = useParams();
   const [data, setData] = useState([]);
   const [sendData, setSendData] = useState({
@@ -30,6 +31,13 @@ export default function Seat({ sucessObj, setSucessObj }) {
   }
 
   function linkAuthorized() {
+    if (sendData.ids.length === 0) {
+      alert("Você não escolheu nenhum assento");
+    } else if (sendData.name === "") {
+      alert("Você não inseriu um nome");
+    } else if (sendData.cpf.length !== 11) {
+      alert("Seu cpf não está completo");
+    }
     if (
       sendData.ids.length > 0 &&
       sendData.name !== "" &&
@@ -37,6 +45,7 @@ export default function Seat({ sucessObj, setSucessObj }) {
     ) {
       setSucessObj({
         ...sendData,
+        ...sucessObj,
         title: data.movie.title,
         hour: data.name,
         date: data.day.date,
@@ -47,8 +56,6 @@ export default function Seat({ sucessObj, setSucessObj }) {
       );
       promise.then(() => history.push("/sucesso"));
       promise.catch(() => alert("Erro no envio!"));
-    } else {
-      alert("Algum dado incompleto");
     }
   }
 
@@ -60,6 +67,8 @@ export default function Seat({ sucessObj, setSucessObj }) {
           seats={data.seats}
           sendData={sendData}
           setSendData={setSendData}
+          sucessObj={sucessObj}
+          setSucessObj={setSucessObj}
         />
         <ExampleSeat />
         <InputCustomerData setSendData={setSendData} sendData={sendData} />

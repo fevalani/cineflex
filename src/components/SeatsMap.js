@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function SeatsMap(props) {
-  const { seats, sendData, setSendData } = props;
+  const { seats, sendData, setSendData, sucessObj, setSucessObj } = props;
 
   if (seats.length === 0) {
     return <div className="session-title">Carregando...</div>;
@@ -9,18 +9,29 @@ export default function SeatsMap(props) {
 
   function selectItem(id) {
     let arr;
-    if (sendData.ids.find((item) => item === id.id) !== undefined) {
-      arr = sendData.ids.filter((item) => (item === id.id ? false : true));
+    let arrName;
+    if (id.isAvailable) {
+      if (sendData.ids.find((item) => item === id.id) !== undefined) {
+        arr = sendData.ids.filter((item) => item !== id.id);
+        arrName = sucessObj.seats.filter((item) =>
+          item === id.name ? false : true
+        );
+      } else {
+        arr = [...sendData.ids, id.id];
+        arrName = [...sucessObj.seats, id.name];
+      }
+      setSucessObj({ ...sucessObj, seats: arrName });
+      setSendData({ ...sendData, ids: arr });
     } else {
-      arr = [...sendData.ids, id.id];
+      alert("Assento indisponível");
     }
-    setSendData({ ...sendData, ids: arr });
   }
 
   return (
     <ul className="seats-map">
       {seats.map((item) => (
         <li
+          key={item.id}
           className={
             item.isAvailable
               ? `seat ${
@@ -30,7 +41,7 @@ export default function SeatsMap(props) {
                 }`
               : "seat unavailable"
           }
-          onClick={item.isAvailable ? () => selectItem(item) : undefined}
+          onClick={() => selectItem(item)}
         >
           {item.name}
         </li>

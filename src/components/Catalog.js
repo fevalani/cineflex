@@ -2,7 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Catalog() {
+export default function Catalog({ setBackButton }) {
+  setBackButton(false);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function Catalog() {
       <ul class="films-list">
         {data.map((item) => (
           <Link to={`/sessoes/${item.id}`} exact>
-            <li className="catalog-films">
+            <li key={item.id} className="catalog-films">
               <img src={item.posterURL} />
             </li>
           </Link>

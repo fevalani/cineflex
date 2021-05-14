@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import BottomBar from "./BottomBar";
 
-export default function Session() {
+export default function Session({ setBackButton }) {
+  setBackButton(true);
   const { idFilm } = useParams();
   const [data, setData] = useState([]);
 

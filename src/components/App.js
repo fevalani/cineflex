@@ -11,22 +11,32 @@ export default function App() {
     title: "",
     hour: "",
     date: "",
+    seats: [],
   });
+  const [backButton, setBackButton] = useState(true);
   return (
     <BrowserRouter>
-      <Header />
+      <Header backButton={backButton} />
       <Switch>
         <Route path="/" exact>
-          <Catalog />
+          <Catalog setBackButton={setBackButton} />
         </Route>
         <Route path="/sessoes/:idFilm" exact>
-          <Session />
+          <Session setBackButton={setBackButton} />
         </Route>
         <Route path="/assentos/:idSession" exact>
-          <Seat sucessObj={sucessObj} setSucessObj={setSucessObj} />
+          <Seat
+            setBackButton={setBackButton}
+            sucessObj={sucessObj}
+            setSucessObj={setSucessObj}
+          />
         </Route>
         <Route path="/sucesso" exact>
-          <ConfirmPage sucessObj={sucessObj} />
+          <ConfirmPage
+            setBackButton={setBackButton}
+            sucessObj={sucessObj}
+            setSucessObj={setSucessObj}
+          />
         </Route>
       </Switch>
     </BrowserRouter>
