@@ -1,14 +1,8 @@
 <h1 align="center">
-    <img alt="Cineflex" title="#Cineflex" src="src/assets/banner.png" />
-</h1>
-
-<h1 align="center">
     <a href="#">Cineflex</a>
 </h1>
 
-<p align="center">  
-   <img alt="License" src="https://img.shields.io/github/license/fevalani/cineflex-react?style=for-the-badge">
-   <a href="https://github.com/">
+<p align="center"> <a href="https://github.com/">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/fevalani/cineflex-react?style=for-the-badge">
   </a>
 </p>
