@@ -93,6 +93,7 @@ body {
   height: 100%;
 
   padding: 0 20px;
+  margin-bottom: 130px;
 }
 
 .session-list li {
@@ -165,6 +166,8 @@ body {
   height: 100%;
 
   padding: 0 24px;
+  margin-bottom: 130px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
