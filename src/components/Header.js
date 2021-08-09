@@ -7,7 +7,11 @@ export default function Header({ backButton }) {
     return (
       <>
         <div className="header">
-          <img onClick={() => history.goBack()} src={backArrow}></img>
+          <img
+            onClick={() => history.goBack()}
+            src={backArrow}
+            alt="backArrow"
+          ></img>
           <span>CINEFLEX</span>
         </div>
       </>

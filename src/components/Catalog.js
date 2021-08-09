@@ -15,6 +15,7 @@ export default function Catalog({ setBackButton }) {
     });
     promise.catch(() => alert("Erro"));
   }, []);
+  // eslint-disable-next-line
 
   if (data.length === 0) {
     return <div className="catalog-title">Carregando...</div>;
@@ -27,7 +28,7 @@ export default function Catalog({ setBackButton }) {
         {data.map((item) => (
           <Link to={`/sessoes/${item.id}`} key={item.id}>
             <li className="catalog-films">
-              <img src={item.posterURL} />
+              <img src={item.posterURL} alt={item.posterURL} />
             </li>
           </Link>
         ))}

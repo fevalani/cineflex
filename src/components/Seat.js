@@ -27,7 +27,7 @@ export default function Seat({ sucessObj, setSucessObj, setBackButton }) {
     });
     promise.catch(() => alert("Erro"));
   }, []);
-
+  // eslint-disable-next-line
   if (data.length === 0) {
     return <div className="session-title">Carregando...</div>;
   }

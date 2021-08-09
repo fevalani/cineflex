@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function SeatsMap(props) {
   const { seats, sendData, setSendData, sucessObj, setSucessObj } = props;
 

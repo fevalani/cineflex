@@ -1,10 +1,9 @@
 <h1 align="center">
-    <a href="#">Cineflex</a>
+    Projeto_Instagram
 </h1>
 
-<p align="center"> <a href="https://github.com/">
+<p align="center">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/fevalani/cineflex-react?style=for-the-badge">
-  </a>
 </p>
 
 <h4 align="center"> 
