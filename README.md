@@ -14,7 +14,6 @@
 ## About
 
 Cineflex is a quick and easy way to book movie tickets. <br>
-Project developed during ** Bootcamp Responde Aí ** offered by [Responde Aí](https://www.respondeai.com.br/). <br>
 The focus of this project is to further develop Front End skills and the concept of single-page applications, changing from pure JavaScript to React, using HTML5, CSS3 and React.
 
 ---
