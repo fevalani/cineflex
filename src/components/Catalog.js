@@ -14,8 +14,7 @@ export default function Catalog({ setBackButton }) {
       setBackButton(false);
     });
     promise.catch(() => alert("Erro"));
-  }, []);
-  // eslint-disable-next-line
+  }, []); // eslint-disable-next-line
 
   if (data.length === 0) {
     return <div className="catalog-title">Carregando...</div>;

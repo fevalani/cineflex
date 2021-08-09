@@ -16,8 +16,8 @@ export default function Session({ setBackButton }) {
       setBackButton(true);
     });
     promise.catch(() => alert("Erro"));
-  }, []);
-  // eslint-disable-next-line
+  }, []); // eslint-disable-next-line
+
   if (data.length === 0) {
     return <div className="session-title">Carregando...</div>;
   }
