@@ -9,7 +9,7 @@ export default function Session({ setBackButton }) {
 
   useEffect(() => {
     const promise = axios.get(
-      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idFilm}/showtimes`
+      `${process.env.REACT_APP_API_BASE_URL}/movies/${idFilm}/showtimes`
     );
     promise.then((result) => {
       setData(result.data);

@@ -19,7 +19,7 @@ export default function Seat({ sucessObj, setSucessObj, setBackButton }) {
 
   useEffect(() => {
     const promise = axios.get(
-      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${params.idSession}/seats`
+      `${process.env.REACT_APP_API_BASE_URL}/showtimes/${params.idSession}/seats`
     );
     promise.then((result) => {
       setData(result.data);
