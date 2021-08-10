@@ -6,10 +6,6 @@
     <img alt="Stargazers" src="https://img.shields.io/github/stars/fevalani/cineflex-react?style=for-the-badge">
 </p>
 
-<h4 align="center"> 
-	 Status: Delivered.
-</h4>
-
 ## About
 
 Cineflex is a quick and easy way to book movie tickets. <br>
