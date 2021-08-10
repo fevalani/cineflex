@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Catalog({ setBackButton }) {
   const [data, setData] = useState([]);
+  console.log(process.env);
 
   useEffect(() => {
     const promise = axios.get(`${process.env.REACT_APP_API_BASE_URL}/movies`);
