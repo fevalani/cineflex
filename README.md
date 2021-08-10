@@ -1,5 +1,5 @@
 <h1 align="center">
-    Projeto_Instagram
+    Cineflex
 </h1>
 
 <p align="center">
