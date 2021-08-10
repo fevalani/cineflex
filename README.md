@@ -1,5 +1,5 @@
 <h1 align="center">
-    Projeto_Instagram
+    Cineflex
 </h1>
 
 <p align="center">
@@ -13,7 +13,7 @@
 ## About
 
 Cineflex is a quick and easy way to book movie tickets. <br>
-The focus of this project is to further develop Front End skills and the concept of single-page applications, changing from pure JavaScript to React, using HTML5, CSS3 and React.
+The focus of this project is to further develop Front End skills and the concept of single-page applications, changing from pure JavaScript to React, using HTML5, CSS3 and React. <a href="https://cineflex-react-gules.vercel.app" target="_blank">Or view here!</a>
 
 ---
 
@@ -79,6 +79,18 @@ The following tools were used in the construction of the project:
 - Fonts: **[Roboto](https://fonts.google.com/specimen/Roboto)**, **[Itim](https://fonts.google.com/specimen/Itim)**
 
 ---
+
+## How to run
+
+1. Clone this repository
+2. Install dependencies
+```bash
+npm i
+```
+3. Run the front-end with
+```bash
+npm start
+```
 
 ## Authors
 
