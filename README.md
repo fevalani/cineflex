@@ -87,7 +87,11 @@ The following tools were used in the construction of the project:
 ```bash
 npm i
 ```
-3. Run the front-end with
+3. Create .env file and insert
+```bash
+REACT_APP_API_BASE_URL="https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex"
+```
+4. Run the front-end with
 ```bash
 npm start
 ```
